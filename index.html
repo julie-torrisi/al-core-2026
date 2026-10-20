@@ -115,6 +115,7 @@ html a,html button,html .btn,html .tdot,html .tarrow,html .copy,html [role="butt
 /* ladder chart */
 .split{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
 @media (max-width:899px){.split{grid-template-columns:1fr}}
+.rightcol{display:grid;gap:16px;min-width:0}
 .order{background:var(--al-dark);border-radius:10px;padding:22px 24px}
 .order h3{margin:0 0 10px;font-size:19px;font-weight:600}
 .order ol{margin:0;padding-left:22px;color:#efe7ff}
@@ -346,16 +347,18 @@ blockquote p{margin:0 0 12px;font-size:clamp(18px,2.2vw,22px);line-height:1.5;co
       <div>
         <p class="jtc" data-role="body">The loud surfaces are for urgent, relevant messages. Interrupt someone mid-task and they don't finish the job they came to do.</p>
         <p class="jtc" data-role="body">We also capped impressions, so nobody saw the same message on repeat. That's how you avoid message blindness and keep people liking the brand.</p>
+      </div>
+      <div class="rightcol">
+        <div class="ladder rv" data-chart="ladder">
+          <h3>Pick the right surface</h3>
+          <p class="label end">↑ More disruptive</p>
+          <div class="rungs"></div>
+          <p class="label end">↓ Less disruptive</p>
+        </div>
         <div class="order rv">
           <h3>Who gets to interrupt, in order</h3>
           <ol><li>Errors and warnings</li><li>Trust, safety and policy</li><li>Deprecations and changes</li><li>Product and feature announcements</li><li>Onboarding reminders</li><li>Incentives and promotions</li><li>Best practices</li><li>Education and guidance</li><li>Status updates</li><li>Activity</li><li>Milestones and recognition</li></ol>
         </div>
-      </div>
-      <div class="ladder rv" data-chart="ladder">
-        <h3>Pick the right surface</h3>
-        <p class="label end">↑ More disruptive</p>
-        <div class="rungs"></div>
-        <p class="label end">↓ Less disruptive</p>
       </div>
     </div>
     <div class="gap"></div>
