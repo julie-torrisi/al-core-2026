@@ -160,7 +160,8 @@ section:last-of-type{padding-bottom:clamp(72px,12vw,160px)}
 .tcar{max-width:880px}
 .tview{overflow:hidden}
 .ttrack{display:flex;align-items:flex-start;transition:transform .6s cubic-bezier(.4,0,.2,1)}
-.ttrack blockquote{flex:0 0 100%;min-width:0;padding-right:4px}
+.ttrack blockquote{flex:0 0 100%;width:100%;max-width:none;min-width:0;padding:0 4px 0 0;box-sizing:border-box}
+.ttrack blockquote p,.ttrack blockquote footer{max-width:62ch}
 blockquote{margin:0;max-width:62ch}
 .tnav{display:flex;align-items:center;gap:16px;margin-top:28px}
 .tdots{display:flex;align-items:center;gap:8px}
