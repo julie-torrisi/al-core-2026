@@ -181,6 +181,18 @@ blockquote{margin:0;max-width:62ch}
 @media (prefers-reduced-motion: reduce){.ttrack,.tdot,.tarrow{transition:none}.tarrow:hover,.tarrow:active{transform:none}}
 blockquote p{margin:0 0 12px;font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--ink);text-wrap:pretty}
 
+
+/* photo bento: one grid, rearranged by screen width; photos fill their tiles */
+.bento{display:grid;gap:12px;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:100px;
+  grid-template-areas:"st co to ca" "st co to ca" "st co to ca" "st co he pa" "pi pi he pa" "pi pi he pa" "bi pr pr pa" "bi pr pr pa"}
+.bento figure{margin:0;position:relative;min-width:0;min-height:0;overflow:hidden;border-radius:8px;background:var(--unlit)}
+.bento img,.bento video{display:block;width:100%;height:100%;object-fit:cover;border-radius:8px}
+.bento figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 9px;font-size:13px;font-style:italic;color:#fff;text-align:right;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+.b-st{grid-area:st}.b-co{grid-area:co}.b-to{grid-area:to}.b-ca{grid-area:ca}.b-he{grid-area:he}.b-pa{grid-area:pa}.b-pi{grid-area:pi}.b-bi{grid-area:bi}.b-pr{grid-area:pr}
+.b-pi img{object-position:50% 30%}.b-pr img{object-position:50% 20%}.b-to img{object-position:50% 40%}
+@media (max-width:899px){.bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:110px;
+  grid-template-areas:"st co" "st co" "st co" "pi pi" "pi pi" "to ca" "to ca" "to ca" "he pa" "he pa" "bi pa" "pr pr" "pr pr"}}
+@media (max-width:639px){.bento{grid-auto-rows:82px;gap:8px}.bento figcaption{font-size:11px;padding:18px 8px 6px}}
 /* reveal */
 .rv{transition:opacity .7s ease, transform .7s ease}
 .rv.pre{opacity:0;transform:translateY(12px)}
@@ -234,18 +246,16 @@ blockquote p{margin:0 0 12px;font-size:clamp(18px,2.2vw,22px);line-height:1.5;co
           <li><b>Dopamine nail art</b><span>Bright, vibrant and fun. I keep a whole Pinterest board just for this.</span></li>
         </ul>
       </div>
-      <div class="photos">
-        <figure class="rv"><img src="img/stationery.jpg" width="384" height="512" alt="Hobonichi Techo planner and Japanese stationery on a picnic blanket"><figcaption>Hobonichi Techo + Japanese stationery</figcaption></figure>
-        <figure class="rv"><video poster="img/costa-brava.jpg" width="540" height="906" autoplay muted loop playsinline preload="auto" aria-label="View of the sea from a boat off the Costa Brava"><source src="media/costa-brava.mp4" type="video/mp4"><source src="media/costa-brava.webm" type="video/webm"></video><figcaption>Off the coast of Costa Brava, June 2026</figcaption></figure>
-        <figure class="rv"><img src="img/tossa.jpg" width="1069" height="1600" alt="A child in a sun hat looking down at a crowded beach"><figcaption>Tossa de Mar, Costa Brava, Spain</figcaption></figure>
-        <figure class="rv"><img src="img/henry.jpg" width="750" height="731" alt="Julie hugging her dog Henry outdoors"><figcaption>Henry, my firstborn son</figcaption></figure>
-        <figure class="rv"><img src="img/pistoia.jpg" width="1600" height="1069" alt="Cara and Jack holding hands in a park"><figcaption>Cara &amp; Jack, Pistoia, July 2026</figcaption></figure>
-        <figure class="rv"><img src="img/capezzana.jpg" width="270" height="404" alt="Two wine glasses on a terrace overlooking Tuscan hills"><figcaption>Capezzana, Carmignano, July 2026</figcaption></figure>
-        <figure class="rv"><video poster="img/tuscany-pasta.jpg" width="540" height="906" autoplay muted loop playsinline preload="auto" aria-label="A summer in Italy: a child eating pasta, cafes and family moments"><source src="media/tuscany-pasta.mp4" type="video/mp4"><source src="media/tuscany-pasta.webm" type="video/webm"></video><figcaption>Tuscany, July 2026</figcaption></figure>
-      </div>
-      <div class="photo-row">
-        <figure class="rv" style="--ar:1.621"><img src="img/birdie.jpg" width="308" height="190" alt="Birdie the dog sitting on a staircase"><figcaption>Birdie, my wild southern belle</figcaption></figure>
-        <figure class="rv" style="--ar:2.938"><img src="img/paris.jpg" width="1616" height="550" alt="Cara and Jack smiling on a rope climbing frame"><figcaption>Cara &amp; Jack, Paris, July 2026</figcaption></figure>
+      <div class="bento">
+        <figure class="rv b-st"><img src="img/stationery.jpg" width="384" height="512" alt="Hobonichi Techo planner and Japanese stationery on a picnic blanket"><figcaption>Hobonichi Techo + Japanese stationery</figcaption></figure>
+        <figure class="rv b-co"><video poster="img/costa-brava.jpg" width="540" height="906" autoplay muted loop playsinline preload="auto" aria-label="View of the sea from a boat off the Costa Brava"><source src="media/costa-brava.mp4" type="video/mp4"><source src="media/costa-brava.webm" type="video/webm"></video><figcaption>Off the coast of Costa Brava, June 2026</figcaption></figure>
+        <figure class="rv b-to"><img src="img/tossa.jpg" width="1069" height="1600" alt="A child in a sun hat looking down at a crowded beach"><figcaption>Tossa de Mar, Costa Brava, Spain</figcaption></figure>
+        <figure class="rv b-he"><img src="img/henry.jpg" width="750" height="731" alt="Julie hugging her dog Henry outdoors"><figcaption>Henry, my firstborn son</figcaption></figure>
+        <figure class="rv b-pi"><img src="img/pistoia.jpg" width="1600" height="1069" alt="Cara and Jack holding hands in a park"><figcaption>Cara &amp; Jack, Pistoia, July 2026</figcaption></figure>
+        <figure class="rv b-ca"><img src="img/capezzana.jpg" width="270" height="404" alt="Two wine glasses on a terrace overlooking Tuscan hills"><figcaption>Capezzana, Carmignano, July 2026</figcaption></figure>
+        <figure class="rv b-pa"><video poster="img/tuscany-pasta.jpg" width="540" height="906" autoplay muted loop playsinline preload="auto" aria-label="A summer in Italy: a child eating pasta, cafes and family moments"><source src="media/tuscany-pasta.mp4" type="video/mp4"><source src="media/tuscany-pasta.webm" type="video/webm"></video><figcaption>Tuscany, July 2026</figcaption></figure>
+        <figure class="rv b-bi"><img src="img/birdie.jpg" width="308" height="190" alt="Birdie the dog sitting on a staircase"><figcaption>Birdie, my wild southern belle</figcaption></figure>
+        <figure class="rv b-pr"><img src="img/paris.jpg" width="1616" height="550" alt="Cara and Jack smiling on a rope climbing frame"><figcaption>Cara &amp; Jack, Paris, July 2026</figcaption></figure>
       </div>
     </div>
     <div class="gap"></div>
